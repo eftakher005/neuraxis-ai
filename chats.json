@@ -1,0 +1,55 @@
+{
+  "mv6bj8i6bdbpy2": {
+    "history": [
+      {
+        "role": "user",
+        "text": "hi"
+      },
+      {
+        "role": "model",
+        "text": "Hello Eftakher! It's great to hear from you. How can I help you today?"
+      },
+      {
+        "role": "user",
+        "text": "who are you?"
+      },
+      {
+        "role": "model",
+        "text": "I'm NeuraxisAI, your friendly and intelligent AI research assistant! I'm here to help you answer questions, brainstorm ideas, research topics, and even create documents or images. What can I do for you today, Eftakher?"
+      }
+    ],
+    "title": "hi",
+    "created": 1791874039.4007092,
+    "updated": 1791874049.6443508
+  },
+  "mv6bmawqhxnnuc": {
+    "history": [
+      {
+        "role": "user",
+        "text": "who are you?"
+      },
+      {
+        "role": "model",
+        "text": "Hello Eftakher! I'm NeuraxisAI, your friendly and intelligent AI assistant. I'm here to help you with anything you need — whether it's answering questions, writing documents, creating presentations, generating images, or just chatting. How can I help you today?"
+      }
+    ],
+    "title": "who are you?",
+    "created": 1791874182.156257,
+    "updated": 1791874182.1562583
+  },
+  "mv6cgll8basfzr": {
+    "history": [
+      {
+        "role": "user",
+        "text": "what is my name?"
+      },
+      {
+        "role": "model",
+        "text": "Your name is Eftakher Rasul!"
+      }
+    ],
+    "title": "what is my name?",
+    "created": 1791875597.2203605,
+    "updated": 1791875597.220362
+  }
+}
