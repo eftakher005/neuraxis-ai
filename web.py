@@ -194,7 +194,7 @@ def extract_docx(data):
 
 
 # =====================================================================
-#  HTML — NeuraxisAI  (universal per-browser memory + fresh chat per device)
+#  HTML — NeuraxisAI
 # =====================================================================
 HTML = r"""<!DOCTYPE html>
 <html lang="en">
@@ -1349,9 +1349,6 @@ body.dragging .dropzone { display: grid; animation: popIn .3s ease; }
 <script>
 /* ============================================================
    NeuraxisAI — front-end controller
-   - Each browser gets its own persistent user ID (localStorage)
-   - The server keeps chats + memory per user ID
-   - Fresh chat on every page load
    ============================================================ */
 
 const TYPEWRITER = true;
@@ -1377,7 +1374,6 @@ const plusMenu         = document.getElementById('plusMenu');
 const sparkleBtn       = document.getElementById('sparkleBtn');
 const sparkleMenu      = document.getElementById('sparkleMenu');
 
-/* ---------- User ID (per browser) ---------- */
 const USER_KEY = 'nx_user_id';
 let userId = localStorage.getItem(USER_KEY);
 if (!userId) {
@@ -1385,7 +1381,6 @@ if (!userId) {
   localStorage.setItem(USER_KEY, userId);
 }
 
-/* ---------- Chat storage (local UI mirror) ---------- */
 const STORAGE_KEY = 'nx_history_v2';
 function newSid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
 let sessionId = newSid();
@@ -2426,7 +2421,6 @@ def chat():
 
         if info.get("chat") is None:
             try:
-                # ⬇️ This is the ONLY line that changed.
                 info["chat"] = agent.create_chat(user_id=user_id, history=info.get("history", []))
             except Exception as e:
                 return jsonify(error=f"Could not rebuild the chat memory: {e}"), 500
