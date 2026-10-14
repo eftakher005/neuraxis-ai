@@ -32,7 +32,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 MEMORY_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "memory.json")
 
 DEFAULT_USER_MEMORY = {"user_name": "", "facts": []}
-_memory_cache = None       # loaded once, then kept in sync with disk
+_memory_cache = None
 
 
 def _load_memory():
@@ -66,7 +66,6 @@ def get_user_memory(user_id):
     if uid not in mem:
         mem[uid] = dict(DEFAULT_USER_MEMORY)
         _save_memory()
-    # ensure keys
     for k, v in DEFAULT_USER_MEMORY.items():
         mem[uid].setdefault(k, v)
     return mem[uid]
@@ -148,6 +147,7 @@ def build_system_prompt(user_id):
 
 _client = None
 tool_log = []
+
 
 # ---------- Structured schemas ----------
 class SlideSpec(BaseModel):
@@ -428,7 +428,6 @@ def main():
     print("=" * 40)
     print("Type 'quit' to exit. Files you create are saved in the 'generated' folder.\n")
 
-    # CLI uses a single local user id
     chat = create_chat(user_id="cli-local")
 
     while True:
